@@ -4,13 +4,27 @@
     background-color: #00848c;
     border-color: #00848c; /*set the color you want here*/
 }
+.btn-outline-vintage {
+    color: #00848c;
+    background-color: #fff;
+    border-color: #00848c; /*set the color you want here*/
+}
 .btn-vintage:hover, .btn-vintage:focus, .btn-vintage:active, .btn-vintage.active, .open>.dropdown-toggle.btn-vintage {
     color: #fff;
     background-color: #037272;
+    border-color: #037272; /*set the color you want here*/
+}
+.btn-outline-vintage:hover, .btn-outline-vintage:focus, .btn-outline-vintage:active, .btn-outline-vintage.active, .open>.dropdown-toggle.btn-outline-vintage {
+    color: #fff;
+    background-color: #00848c;
     border-color: #00848c; /*set the color you want here*/
 }
-.btn-check:focus+.btn-vintage,.btn-vintage:focus{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4);}
-.btn-check:active+.btn-vintage:focus,.btn-check:checked+.btn-vintage:focus,.btn-vintage.active:focus,.btn-vintage:active:focus,.show>.btn-vintage.dropdown-toggle:focus{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4)}
+.btn-check:focus+.btn-vintage,.btn-vintage:focus,
+.btn-check:focus+.btn-outline-vintage,.btn-outline-vintage:focus{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4);}
+.btn-check:active+.btn-vintage:focus,.btn-check:checked+.btn-vintage:focus,.btn-vintage.active:focus,.btn-vintage:active:focus,.show>.btn-vintage.dropdown-toggle:focus,
+.btn-check:active+.btn--outline-vintage:focus,.btn-check:checked+.btn-outline-vintage:focus,.btn-outline-vintage.active:focus,.btn-outline-vintage:active:focus,.show>.btn-outline-vintage.dropdown-toggle:focus
+{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4)}
+
 
 .carousel {
     /*height: 800px;*/
@@ -34,6 +48,18 @@
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7));
 }
 
-.carousel-caption {
+.carousel-caption, .carousel-caption a {
     color: #edebd9;
+    text-decoration: none;
+}
+
+.form-control:focus {
+    border-color: #037272;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(3, 114, 114);
+}
+
+/*--------------Login Page css-----------*/
+h6 a{
+    text-decoration: none;
+    color: #037272
 }
