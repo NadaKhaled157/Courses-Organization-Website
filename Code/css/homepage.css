@@ -1,4 +1,8 @@
-/*This is adding the btn-vintage colors*/
+/*This is adding the theme "vintage" colors*/
+
+.bg-vintage{
+    background-color: #1c1f4c;
+}
 .btn-vintage {
     color: #fff;
     background-color: #00848c;
@@ -26,17 +30,12 @@
 {box-shadow:0 0 0 .25rem rgba(0,132,140,0.4)}
 
 
-.carousel {
-    /*height: 800px;*/
-    width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.carousel img {
-    width:1200px;
-    height:600px;
-}
+/*.carousel {*/
+/*    !*height: 800px;*!*/
+/*    width: 1300px;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
 
 .carousel-item::before {
     content: "";
@@ -53,6 +52,12 @@
     text-decoration: none;
 }
 
+.text {
+    color: #edebd9;
+    font-family: "Courier New", Times, serif;
+    font-weight: bold;
+}
+
 .form-control:focus {
     border-color: #037272;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(3, 114, 114);
@@ -63,3 +68,103 @@ h6 a{
     text-decoration: none;
     color: #037272
 }
+
+/*----------Course Details css----------*/
+#hover-content{
+    display: none;
+}
+#parent:hover #hover-content {
+    display: block;
+    width:300px;
+    height: 500px;
+    background: rgba(0, 132, 140, 0.5);
+    color:#fff;
+    position: fixed;
+}
+
+/*.arrow-box {*/
+/*    !*top: 40px;*!*/
+/*    position: fixed;*/
+/*    background: #ffffff;*/
+/*    border: 1px solid #00848c;  !*set border colour here*!*/
+/*    width: 200px;*/
+/*    height: 500px;*/
+/*    border-radius: 3px;*/
+/*}*/
+
+/*.arrow-box:after,*/
+/*.arrow-box:before {*/
+/*    bottom: 100%;*/
+/*    border: solid transparent;*/
+/*    content: " ";*/
+/*    height: 0;*/
+/*    width: 0;*/
+/*    position: absolute;*/
+/*    pointer-events: none;*/
+/*}*/
+
+/*.arrow-box:after {*/
+/*    border-color: rgba(255, 255, 255, 0);*/
+/*    border-bottom-color: #00848c;*/
+/*    border-width: 19px;*/
+/*    left: 50%;*/
+/*    margin-left: -19px;*/
+/*}*/
+
+/*.arrow-box:before {*/
+/*    border-color: rgba(113, 158, 206, 0);*/
+/*    border-bottom-color: #00848c;*/
+/*    border-width: 20px;*/
+/*    left: 50%;*/
+/*    margin-left: -20px;*/
+/*}*/
+
+
+/*a[data-tooltip] {*/
+/*    position: relative;*/
+/*}*/
+/*a[data-tooltip]::before,*/
+/*a[data-tooltip]::after {*/
+/*    position: absolute;*/
+/*    display: none;*/
+/*    opacity: 0.85;*/
+/*}*/
+/*a[data-tooltip]::before {*/
+/*    !**/
+/*     * using data-tooltip instead of title so we*/
+/*     * don't have the real tooltip overlapping*/
+/*     *!*/
+/*    content: attr(data-tooltip);*/
+/*    background: #000;*/
+/*    color: #fff;*/
+/*    font-size: 13px;*/
+/*    padding: 5px;*/
+/*    border-radius: 5px;*/
+/*    !* we don't want the text to wrap *!*/
+/*    white-space: nowrap;*/
+/*    text-decoration: none;*/
+/*}*/
+/*a[data-tooltip]::after {*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    border: 6px solid transparent;*/
+/*    content: '';*/
+/*}*/
+
+/*a[data-tooltip]:hover::before,*/
+/*a[data-tooltip]:hover::after {*/
+/*    display: block;*/
+/*}*/
+/*!* bottom tooltip *!*/
+/*a[data-tooltip][data-placement="bottom"]::before {*/
+/*    top: 100%;*/
+/*    left: 0;*/
+/*    margin-top: 10px;*/
+/*}*/
+/*a[data-tooltip][data-placement="bottom"]::after {*/
+/*    border-bottom-color: #000;*/
+/*    border-top: none;*/
+/*    top: 100%;*/
+/*    left: 10px;*/
+/*    margin-top: 4px;*/
+/*}*/
