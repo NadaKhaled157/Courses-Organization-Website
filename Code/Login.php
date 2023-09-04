@@ -13,13 +13,15 @@
         <br>
         <h5 class="card-title">LOGIN</h5>
         <br>
+        <form action="server.php" method="post">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" name="user" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="password" class="form-control" name="pass" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <a href="#" class="btn btn-vintage d-block mx-auto">LOGIN</a>
+        </form>
         <h6 class="mt-1">Don't have an account? <a href="Signup.html">Sign Up Now!</a></h6>
     </div>
 </div>
