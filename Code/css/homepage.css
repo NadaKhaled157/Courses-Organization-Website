@@ -70,17 +70,32 @@ h6 a{
 }
 
 /*----------Course Details css----------*/
-#hover-content{
+#reviews{
     display: none;
-}
-#parent:hover #hover-content {
-    display: block;
     width:300px;
     height: 500px;
-    background: rgba(0, 132, 140, 0.5);
-    color:#fff;
+    background: #faf1d7;
+    color:#1c1f4c;
+    border: solid #1c1f4c;
+    overflow-y: scroll;
+    cursor: default;
     position: fixed;
+    z-index: 1;
 }
+#parent{
+    cursor:pointer;
+}
+/*#parent:hover #reviews {*/
+/*    display: block;*/
+/*    width:300px;*/
+/*    height: 500px;*/
+/*    background: #faf1d7;*/
+/*    color:#1c1f4c;*/
+/*    border: solid #1c1f4c;*/
+/*    overflow-y: scroll;*/
+/*    position: fixed;*/
+/*    z-index: 1;*/
+/*}*/
 
 /*.arrow-box {*/
 /*    !*top: 40px;*!*/

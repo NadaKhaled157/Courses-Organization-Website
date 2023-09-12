@@ -40,16 +40,28 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Login.php" tabindex="-1" aria-disabled="false">Login or Signup</a>
+                    <a class="nav-link me-1" href="#">About</a>
                 </li>
             </ul>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;">
                 <button class="btn btn-outline-vintage" id="button" type="submit">Search</button>
             </form>
+            <ul class="navbar-nav mx-3 mb-2 mb-lg-0">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        👤 <?php echo $_SESSION["user"]?>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">View Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#" tabindex="-1" aria-disabled="false">👤 --><?php //echo $_SESSION["user"]?><!--</a>-->
+<!--            </li>-->
+            </ul>
         </div>
     </div>
 </nav>

@@ -6,7 +6,14 @@
     <title>Home Page</title>
 </head>
 <body>
-<?php include 'nav-bar.php';?>
+<?php
+session_start();
+if (isset($_SESSION["user"])) {
+    include 'logged-nav.php';
+} else {
+    include 'nav-bar.php';
+}
+?>
 <div id="carousel" class="carousel" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -45,7 +52,7 @@
             <h5 class="card-title">ROBOTICS</h5>
             <p class="card-text">Do you like tinkering with hardware parts? Check out our robotics workshop!
                 Includes a guided final project. </p>
-            <a href="#" class="btn btn-vintage">Enroll Now</a>
+            <a href="Course-Details.php" class="btn btn-vintage">Enroll Now</a>
         </div>
     </div>
     <div class="card d-inline-block mx-auto my-2 col-sm-6" style="width: 18rem;">

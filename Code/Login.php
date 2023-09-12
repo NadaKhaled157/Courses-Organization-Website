@@ -20,7 +20,8 @@
         <div class="input-group mb-3">
             <input type="password" class="form-control" name="pass" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
         </div>
-        <a href="#" class="btn btn-vintage d-block mx-auto">LOGIN</a>
+<!--        <a href="#" class="btn btn-vintage d-block mx-auto">LOGIN</a>-->
+            <input type="submit" class="btn btn-vintage d-block mx-auto" style="width:100%;" value="LOGIN">
         </form>
         <h6 class="mt-1">Don't have an account? <a href="Signup.html">Sign Up Now!</a></h6>
     </div>
