@@ -40,7 +40,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-1" href="#">About</a>
+                    <a class="nav-link me-1" href="About.php">About</a>
                 </li>
             </ul>
             <form class="d-flex">
@@ -57,10 +57,6 @@
                         <li><a class="dropdown-item" href="#">View Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="#" tabindex="-1" aria-disabled="false">👤 --><?php //echo $_SESSION["user"]?><!--</a>-->
-<!--            </li>-->
             </ul>
         </div>
     </div>

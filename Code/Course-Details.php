@@ -8,7 +8,6 @@
     <title id="title">Course Title</title>
 </head>
 <body>
-<script src="js/course-details.js"></script>
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
@@ -40,60 +39,73 @@ if (isset($_SESSION["user"])) {
     <p class="text ms-5 ps-5 d-inline-block" style="width: 550px;">Brief Course Description. Maximum two sentences.</p>
 </div>
     <div class="rating px-5 mx-5">
-        <div id="parent" class="d-inline">
-        <p class="text d-inline" onclick="showReviews()">4.5</p>
-            <div class="arrow-box border-2 p-1" id="reviews">
-                <p class="text-center">REVIEWS</p>
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-                userName ******
-                <br>
-                written review.
-                <br>
-            </div>
+<!--        <div id="parent" class="d-inline">-->
+<!--            <div class="dropdown">-->
+<!--        <p class="text d-inline dropdown" id="reviews" type="button" data-bs-toggle="dropdown" aria-expanded="false">4.5</p>-->
+<!--                <ul class="dropdown-menu" aria-labelledby="reviews">-->
+<!--                    <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--                </ul>-->
+<!--<!--                onclick="showReviews()-->-->
+<!--            </div>-->
+
+        <button tabindex="0" type="button" class="text" style="background: rgba(0,0,0,0); border-color:rgba(0,0,0,0);" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" title="Course Reviews" data-bs-placement="bottom" data-bs-content="Bottom popover">
+            4.5
+        </button>
+
+<!--            <div class="arrow-box border-2 p-1" id="reviews">-->
+<!--                <p class="text-center">REVIEWS</p>-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--                userName ******-->
+<!--                <br>-->
+<!--                written review.-->
+<!--                <br>-->
+<!--            </div>-->
         <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
         <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
         <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
@@ -101,8 +113,8 @@ if (isset($_SESSION["user"])) {
         <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
         </div>
     </div>
+<!--</div>-->
 
-</div>
 <div class="d-flex flex-wrap" style="width:800px;">
 <div class="card ms-sm-3 ms-md-5 mt-4" style="width:20rem; background-color: #faf1d7" id="card1">
     <div class="card-body">
@@ -148,13 +160,19 @@ if (isset($_SESSION["user"])) {
             if (isset($_SESSION["user"])){
                 echo "<button type='submit' class='btn btn-vintage mt-2 d-inline active' style='margin-left:210px;'>Submit</button>";
             } else {
-                echo "<button type='submit' class='btn btn-vintage mt-2 d-inline disabled' style='margin-left:210px;'>Submit</button>";
+//                echo "<button type='submit' class='btn btn-vintage mt-2 d-inline disabled' style='margin-left:210px;'>Submit</button>";
+
+                echo "<span class='d-inline-block' tabindex='0' data-bs-toggle='popover' data-bs-trigger='hover focus' data-bs-content='Please login to leave a review.'>
+  <button type='submit' class='btn btn-vintage mt-2 d-inline disabled' style='margin-left:210px;'>Submit</button>
+</span>";
             }
             ?>
         </div>
     </div>
 </div>
 <!--</div>-->
-<script src="js/reviews.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/course-details.js"></script>
+<!--<script src="js/reviews.js"></script>-->
 </body>
 </html>

@@ -40,7 +40,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="About.php">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Login.php" tabindex="-1" aria-disabled="false">Login or Signup</a>

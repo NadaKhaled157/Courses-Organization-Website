@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="card mx-auto mt-2 col-sm-6" style="width: 25rem;">
-    <a href="Homepage.html"><img src="../Photos/Logo.jpg" class="card-img-top" alt="Beta Academy Logo"></a>
+    <a href="Homepage.php"><img src="../Photos/Logo.jpg" class="card-img-top" alt="Beta Academy Logo"></a>
     <div class="card-body">
         <h2 class="text-center"><strong>Welcome<br>Back!</strong></h2>
         <br>

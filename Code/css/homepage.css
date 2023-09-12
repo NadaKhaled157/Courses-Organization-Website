@@ -57,6 +57,10 @@
     font-family: "Courier New", Times, serif;
     font-weight: bold;
 }
+.text-vintage {
+    color: #00848c;
+}
+
 
 .form-control:focus {
     border-color: #037272;
@@ -70,21 +74,21 @@ h6 a{
 }
 
 /*----------Course Details css----------*/
-#reviews{
-    display: none;
-    width:300px;
-    height: 500px;
-    background: #faf1d7;
-    color:#1c1f4c;
-    border: solid #1c1f4c;
-    overflow-y: scroll;
-    cursor: default;
-    position: fixed;
-    z-index: 1;
-}
-#parent{
-    cursor:pointer;
-}
+/*#reviews{*/
+/*    display: none;*/
+/*    width:300px;*/
+/*    height: 500px;*/
+/*    background: #faf1d7;*/
+/*    color:#1c1f4c;*/
+/*    border: solid #1c1f4c;*/
+/*    overflow-y: scroll;*/
+/*    cursor: default;*/
+/*    position: fixed;*/
+/*    z-index: 1;*/
+/*}*/
+/*#parent{*/
+/*    cursor:pointer;*/
+/*}*/
 /*#parent:hover #reviews {*/
 /*    display: block;*/
 /*    width:300px;*/
