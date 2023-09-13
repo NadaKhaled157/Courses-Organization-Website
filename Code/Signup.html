@@ -5,45 +5,106 @@
     <link rel="stylesheet" href="css/homepage.css">
     <title>Signup Page</title>
 </head>
-<body>
-<!--<div class="=row">-->
-<!--<div class="card my-auto d-inline-block" style="width: 25rem;">-->
-<!--    <img src="../Photos/Logo.jpg" class="card-img-top" alt="Beta Academy">-->
-<!--</div>-->
-<!--    <div class="card my-auto d-inline-block" style="width: 25rem;">-->
-<!--    <div class="input-group mb-3">-->
-<!--        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">-->
-<!--    </div>-->
-<!--    <div class="input-group mb-3">-->
-<!--        <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">-->
-<!--    </div>-->
-<!--    <a href="#" class="btn btn-vintage d-block mx-auto">SIGNUP</a>-->
-<!--    </div>-->
-<!--</div>-->
+<body class="overflow-auto">
 <div class="card-group mx-auto my-auto border-0" style="width: 55rem; height:50rem;">
     <div class="card my-auto pt-5 border-0" style="width: 20rem;">
         <a href="Homepage.php"><img src="../Photos/Logo.jpg" class="card-img-top" alt="Beta Academy Logo"></a>
     </div>
     <div class="card my-auto pb-5 border-0" style="width: 20rem;">
         <div class="card-body">
-            <h2 class="text-center"><strong>Welcome to<br>Beta Academy!</strong></h2>
+            <h2 class="text-center mt-1"><strong>Welcome to<br>Beta Academy!</strong></h2>
             <br>
             <h5 class="card-title text-center">SIGNUP</h5>
             <br>
+            <form action="server.php" method="post">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" name="firstname" placeholder="First Name" aria-label="firstname" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" name="lastname" placeholder="Last Name" aria-label="lastname" aria-describedby="basic-addon2">
             </div>
             <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="email" class="form-control" name="email" placeholder="Email" aria-label="email" aria-describedby="basic-addon3">
+            </div>
+<!--            <div class="input-group mb-3">-->
+<!--                <input type="text" class="form-control" name="number" placeholder="Phone Number" aria-label="phoneNumber">-->
+<!--            </div>-->
+<!--            <div class="input-group mb-3">-->
+<!--                <label class="input-group-text" for="universitySelector">University</label>-->
+<!--                <select class="form-select" name="uni" id="universitySelector">-->
+<!--                    <option selected>Choose...</option>-->
+<!--                    <option value="Cairo">Cairo</option>-->
+<!--                    <option value="Ain Shams">Ain Shams</option>-->
+<!--                    <option value="Helwan">Helwan</option>-->
+<!--&lt;!&ndash;                    <option value="1">Helwan - Matarya Branch</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">Shoubra</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">AUC</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">GUC</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">ECU</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">MSA</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">October University</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">MUST</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">Nile University</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">CIC</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">HTI</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">MTI</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">Mansoura</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">Zagazig</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">AAST</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">El Shrouk University</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">Other</option>&ndash;&gt;-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="input-group mb-3">-->
+<!--                <label class="input-group-text" for="facultySelector">Faculty</label>-->
+<!--                <select class="form-select" name="faculty" id="facultySelector">-->
+<!--                    <option selected>Choose...</option>-->
+<!--                    <option value="Eng.">Engineering</option>-->
+<!--                    <option value="CS">Computer Science</option>-->
+<!--&lt;!&ndash;                    <option value="3">Science</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Business</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Law</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Arts</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Applied Arts</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Other</option>&ndash;&gt;-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="input-group mb-3">-->
+<!--                <label class="input-group-text" for="departmentSelector">Department</label>-->
+<!--                <select class="form-select" name="dep" id="departmentSelector">-->
+<!--                    <option selected>Choose...</option>-->
+<!--                    <option value="G">General/Preparatory</option>-->
+<!--                    <option value="CE">Communications & Electronics</option>-->
+<!--                    <option value="EP">Electrical Power</option>-->
+<!--&lt;!&ndash;                    <option value="3">Computer</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Biomedical</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Mechanical</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Aerospace</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Civil</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Petroleum</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Other</option>&ndash;&gt;-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="input-group mb-3">-->
+<!--                <label class="input-group-text" for="gradYear">Class of</label>-->
+<!--                <select class="form-select" name="gradYear" id="gradYear">-->
+<!--                    <option selected>Choose...</option>-->
+<!--                    <option value="2027">2027</option>-->
+<!--                    <option value="2026">2026</option>-->
+<!--                    <option value="2025">2025</option>-->
+<!--                    <option value="2024">2024</option>-->
+<!--                    <option value="2023">2023</option>-->
+<!--                </select>-->
+<!--            </div>-->
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" name="pass" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Confirm Password" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="password" class="form-control" name="confirmPass" placeholder="Confirm Password" aria-label="Username" aria-describedby="basic-addon1">
             </div>
-            <a href="#" class="btn btn-vintage d-block mx-auto">SIGNUP</a>
-            <h6 class="mt-1">Already have an account? <a href="Login.php">Log in here!</a></h6>
+            <input type="submit" class="btn btn-vintage d-block mx-auto" style="width:100%;" value="SIGNUP">
+            </form>
+            <h6 class="mt-1">Already have an account? <a href="Login.html">Log in here!</a></h6>
         </div>
     </div>
 </div>

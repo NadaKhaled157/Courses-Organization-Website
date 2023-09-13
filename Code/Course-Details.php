@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/popover.scss">
     <!-- Add icon library -->
 <!--    <link rel="stylesheet" href="css/fontawesome.min.css">-->
     <title id="title">Course Title</title>
@@ -39,73 +40,31 @@ if (isset($_SESSION["user"])) {
     <p class="text ms-5 ps-5 d-inline-block" style="width: 550px;">Brief Course Description. Maximum two sentences.</p>
 </div>
     <div class="rating px-5 mx-5">
-<!--        <div id="parent" class="d-inline">-->
-<!--            <div class="dropdown">-->
-<!--        <p class="text d-inline dropdown" id="reviews" type="button" data-bs-toggle="dropdown" aria-expanded="false">4.5</p>-->
-<!--                <ul class="dropdown-menu" aria-labelledby="reviews">-->
-<!--                    <li><a class="dropdown-item" href="#">Action</a></li>-->
-<!--                    <li><a class="dropdown-item" href="#">Another action</a></li>-->
-<!--                    <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-<!--                </ul>-->
-<!--<!--                onclick="showReviews()-->-->
-<!--            </div>-->
-
-        <button tabindex="0" type="button" class="text" style="background: rgba(0,0,0,0); border-color:rgba(0,0,0,0);" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" title="Course Reviews" data-bs-placement="bottom" data-bs-content="Bottom popover">
+        <button type="button" class="text" style="background: rgba(0,0,0,0);
+        border-color:rgba(0,0,0,0);" data-bs-toggle="modal" data-bs-target="#reviewsWindow">
             4.5
         </button>
-
-<!--            <div class="arrow-box border-2 p-1" id="reviews">-->
-<!--                <p class="text-center">REVIEWS</p>-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--                userName ******-->
-<!--                <br>-->
-<!--                written review.-->
-<!--                <br>-->
-<!--            </div>-->
+        <div class="modal fade" id="reviewsWindow" tabindex="-1" aria-labelledby="reviewsWindowLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reviewsWindowLabel">Course Reviews</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        This is some placeholder content to show a vertically centered modal.
+                        We've added some extra copy here to show how vertically centering the modal works when combined with scrollable modals.
+                        We also use some repeated line breaks to quickly extend the height of the content, thereby triggering the scrolling.
+                        When content becomes longer than the prefedined max-height of modal, content will be cropped and scrollable within the modal.
+                        Just like that.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-vintage" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-vintage">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
         <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
         <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
@@ -113,7 +72,6 @@ if (isset($_SESSION["user"])) {
         <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
         </div>
     </div>
-<!--</div>-->
 
 <div class="d-flex flex-wrap" style="width:800px;">
 <div class="card ms-sm-3 ms-md-5 mt-4" style="width:20rem; background-color: #faf1d7" id="card1">

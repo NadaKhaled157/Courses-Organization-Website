@@ -8,7 +8,7 @@
 <body>
 <?php
 session_start();
-if (isset($_SESSION["user"])) {
+if (isset($_SESSION["email"])) {
     include 'logged-nav.php';
 } else {
     include 'nav-bar.php';
