@@ -1,10 +1,4 @@
 <?php
-//session_start();
-//if ($_POST["email"] == "Nada@gmail.com" && $_POST["pass"]=="1234") {
-//    $_SESSION["email"] = $_POST["email"];
-////    echo("Hello,". $_POST["user"]);
-//    header("Location: Homepage.php");
-//}
 $servername="localhost";
 $username="root";
 $password="";
@@ -16,7 +10,7 @@ $conn= new mysqli($servername, $username, $password,$dbname);
 if($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected Successfully." . "<br>";
+//echo "Connected Successfully." . "<br>";
 
 $firstname= $_POST["firstname"];
 $lastname= $_POST["lastname"];
@@ -28,8 +22,6 @@ $email= $_POST["email"];
 //$gradYear= $_POST["gradYear"];
 $pass= $_POST["pass"];
 
-//
-
 //$sql = "INSERT INTO users (firstName,lastName,email,phoneNumber,university,faculty,department,gradYear,pass) VALUES ('$firstName', '$lastName', '$email','$number','$uni','$faculty', '$dep', '$gradYear','$pass')";
 $sql = "INSERT INTO users (firstname,lastname,email,pass) VALUES ('$firstname', '$lastname', '$email','$pass')";
 if($conn->query($sql) === TRUE) {
@@ -37,4 +29,3 @@ if($conn->query($sql) === TRUE) {
 } else {
     echo "ERROR: " . $sql . "<br>" . $conn->error;
 }
-?>

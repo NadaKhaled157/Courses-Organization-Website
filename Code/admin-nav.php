@@ -6,30 +6,6 @@
     <title>Title</title>
 </head>
 <body>
-<?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="courses-db";
-
-// Create Connection
-$conn= new mysqli($servername, $username, $password,$dbname);
-// Check Connection
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$email = $_SESSION["email"];
-$query = "SELECT firstname, lastname FROM users WHERE email='$email'";
-$result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($conn));
-$user = $result->fetch_assoc();
-$_SESSION["firstname"] = $user["firstname"] . " " . $user["lastname"];
-
-//$row = mysql_fetch_array($query);
-//$user = $row['username'];
-////$query = "SELECT firstname, lastname FROM users";
-////$row = mysql_fetch_array($sql);
-//$result = $conn->query($query);
-?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="Homepage.php">
@@ -75,33 +51,18 @@ $_SESSION["firstname"] = $user["firstname"] . " " . $user["lastname"];
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        👤 <?php
-//                        $user=$result["email"];
-//                        $user=null;
-//                        if(mysqli_num_rows($result)==1){
-//                            $row=mysqli_fetch_assoc($result);
-//                            $user= $row["firstname"] . " " . $row["lastname"];
-//                        }
-                        echo $_SESSION["firstname"];
-//                        $row= mysql_fetch_array($result);
-//                        $username= $row['username'];
-//                        echo $username;
-//                        if($result->num_rows>0){
-//                            while($row=$result->fetch_assoc()){
-//                            $_SESSION["email"]= $result->fetch_assoc();
-//                                echo $_SESSION["email"].ToString
-//                            echo "$row["firstname"] . $row["lastname"]";
-//                        }
-//                        }
-                        ?>
+                        👤
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">View Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Add Course</a></li>
+                        <li><a class="dropdown-item" href="edit-courses.php">Edit Courses</a></li>
+                        <li><a class="dropdown-item" href="edit-users.php">Edit User Data</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-            </ul>
+                    </ul>
         </div>
     </div>
 </nav>
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

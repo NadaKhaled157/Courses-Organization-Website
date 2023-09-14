@@ -20,6 +20,14 @@
         <div class="input-group mb-3">
             <input type="password" class="form-control" name="pass" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
         </div>
+            <?php
+            session_start();
+            if(isset($_SESSION["error"])){
+                echo "<p style='margin-top: -15px; margin-bottom: 2px; margin-left:10px; color: #de0000; font-weight: bold; font-size: 13px;'>" . $_SESSION["error"] . "</p>";
+//                echo "<a href='#' style='margin-left:10px;'>" . "Forgot my password!" . "</a>";
+                unset($_SESSION["error"]);
+            }
+            ?>
 <!--        <a href="#" class="btn btn-vintage d-block mx-auto">LOGIN</a>-->
             <input type="submit" class="btn btn-vintage d-block mx-auto" style="width:100%;" value="LOGIN">
         </form>
