@@ -3,46 +3,85 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/popover.scss">
-    <!-- Add icon library -->
-<!--    <link rel="stylesheet" href="css/fontawesome.min.css">-->
-    <title id="title">Course Title</title>
+    <title>Course Details</title>
 </head>
 <body>
+<?php //require 'db.php';?>
 <?php
-session_start();
-if (isset($_SESSION["user"])) {
-    include 'logged-nav.php';
-} else {
-    include 'nav-bar.php';
+$servername="localhost";
+$username="root";
+$password="";
+$dbname="courses-db";
+
+// Create Connection
+$conn= new mysqli($servername, $username, $password,$dbname);
+// Check Connection
+if($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
+<?php
+require 'db.php';
+session_start();
+if (isset($_SESSION["email"])) {
+    if ($_SESSION["email"]=='admin')
+        include 'admin-nav.php';
+    else include 'logged-nav.php';
+}else {
+    include 'nav-bar.php';
+}
+$courseID=$_GET["id"];
+$sql= "SELECT * FROM courses WHERE id='" . $courseID . "'";
+$result = $conn->query($sql);;
+$course=$result->fetch_assoc();
+?>
+
+
 <!--<div class="" style="background-color: #faf1d7; height: 100vh;">-->
 <div style="height: 200px; background-color: #1c1f4c;">
     <div class="d-lg-flex justify-content-end d-sm-none">
         <div class="card ms-auto my-3 col-sm-6 position-fixed" style="width: 20rem; margin-right: 100px;">
-            <img src="../Photos/Courses/robotics.jpg" class="card-img-top" alt="Robotics">
+            <?php echo "<img src=../Photos/Courses/" .$course['id'].".jpg class='card-img-top' alt='Robotics'>";?>
             <div class="card-body">
-                <h5 class="card-title">COURSE TITLE</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p class="card-text">Course Overview:</p>
+                <h5 class="card-title"><?php echo $course['title']?></h5>
+                <p class="card-text"><?php echo $course['description']?></p>
+<!--                <p class="card-text">Course Overview:</p>-->
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">⏳ 12 Sessions</li>
-                    <li class="list-group-item">💻 2 Project Discussions</li>
-                    <li class="list-group-item">💰 40 EGP/session</li>
+                    <li class="list-group-item">⏳ <?php echo $course['duration']?> Sessions</li>
+                    <li class="list-group-item">💻 <?php echo $course['projects']?> Project Discussion(s)</li>
+                    <li class="list-group-item">💰 <?php echo $course['price']?> EGP/session</li>
                 </ul>
-                <a href="#" class="btn btn-vintage d-block">Enroll Now</a>
+                <a class="btn btn-vintage d-block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Enroll</a>
+                <?php echo "<a href='save.php?user=". $_SESSION['email']."&course=".$course['id']."' type='button' class='btn btn-outline-sec d-block mt-2'>Save For Later</a>";?>
             </div>
         </div>
     </div>
-    <h1 class="text mx-5 px-5 pt-3">Course Name</h1>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Enrollment Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to enroll in <?php echo $course['title']?> Course
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <?php echo "<a href='enroll.php?user=". $_SESSION['email']."&course=".$course['id']."' type='button' class='btn btn-vintage'>Enroll Now</a>";?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="text mx-5 px-5 pt-3"><?php echo $course['title']?></h1>
     <div class="d-inline-block">
-    <p class="text ms-5 ps-5 d-inline-block" style="width: 550px;">Brief Course Description. Maximum two sentences.</p>
+    <p class="text ms-5 ps-5 d-inline-block" style="width: 620px;"><?php echo $course['brief']?></p>
 </div>
     <div class="rating px-5 mx-5">
         <button type="button" class="text" style="background: rgba(0,0,0,0);
         border-color:rgba(0,0,0,0);" data-bs-toggle="modal" data-bs-target="#reviewsWindow">
-            4.5
+            <?php echo $course['rating']?>/5 ✩
         </button>
         <div class="modal fade" id="reviewsWindow" tabindex="-1" aria-labelledby="reviewsWindowLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -52,24 +91,19 @@ if (isset($_SESSION["user"])) {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        This is some placeholder content to show a vertically centered modal.
-                        We've added some extra copy here to show how vertically centering the modal works when combined with scrollable modals.
-                        We also use some repeated line breaks to quickly extend the height of the content, thereby triggering the scrolling.
-                        When content becomes longer than the prefedined max-height of modal, content will be cropped and scrollable within the modal.
-                        Just like that.
+                        <h6 style="color:#1c1f4c;">Nada Khaled</h6>
+                        Great course! Highly recommend.
+                        <hr>
+                            <h6 style="color:#1c1f4c;">User</h6>
+                            This is some placeholder text.
+                        <hr>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-vintage" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-vintage">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
-        <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-        <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-        <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-        <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-        <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
         </div>
     </div>
 
@@ -103,19 +137,20 @@ if (isset($_SESSION["user"])) {
     <div class="card ms-sm-3 ms-md-5 my-3" style="width:20rem; background-color: #faf1d7" id="card4">
         <div class="card-body">
             <h5 class="card-title fw-bold" style="color:#1c1f4c">Leave a Review!</h5>
-            <div class="rating">
+            <div class="rating"> ✩
                 <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
                 <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
                 <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
                 <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
                 <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+
             </div>
 
             <label>
                 <textarea class="form-control" rows="3" cols="50"></textarea>
             </label>
             <?php
-            if (isset($_SESSION["user"])){
+            if (isset($_SESSION["email"])){
                 echo "<button type='submit' class='btn btn-vintage mt-2 d-inline active' style='margin-left:210px;'>Submit</button>";
             } else {
 //                echo "<button type='submit' class='btn btn-vintage mt-2 d-inline disabled' style='margin-left:210px;'>Submit</button>";

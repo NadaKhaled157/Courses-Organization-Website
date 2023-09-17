@@ -22,7 +22,7 @@ $email = $_SESSION["email"];
 $query = "SELECT firstname, lastname FROM users WHERE email='$email'";
 $result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($conn));
 $user = $result->fetch_assoc();
-$_SESSION["firstname"] = $user["firstname"] . " " . $user["lastname"];
+$_SESSION["Name"] = $user["firstname"] . " " . $user["lastname"];
 
 //$row = mysql_fetch_array($query);
 //$user = $row['username'];
@@ -49,23 +49,23 @@ $_SESSION["firstname"] = $user["firstname"] . " " . $user["lastname"];
                         Categories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                        <li><a class="dropdown-item" href="#">C++</a></li>
-                        <li><a class="dropdown-item" href="#">C++/OOP</a></li>
-                        <li><a class="dropdown-item" href="#">Matlab</a></li>
-                        <li><a class="dropdown-item" href="#">Robotics</a></li>
-                        <li><a class="dropdown-item" href="#">Autocad</a></li>
-                        <li><a class="dropdown-item" href="#">Solidworks</a></li>
-                        <li><a class="dropdown-item" href="#">Automotive</a></li>
-                        <li><a class="dropdown-item" href="#">Revit</a></li>
-                        <li><a class="dropdown-item" href="#">Photoshop</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=WD">Web Development</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=CPP">C++</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=CPOOP">C++/OOP</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=ML">Matlab</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=RO">Robotics</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=AC">Autocad</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=SW">Solidworks</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=AM">Automotive</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=RE">Revit</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=PS">Photoshop</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="All-Courses.php">See All</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link me-1" href="About.php">About</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link me-1" href="About.php">About</a>-->
+<!--                </li>-->
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:300px;">
@@ -75,28 +75,10 @@ $_SESSION["firstname"] = $user["firstname"] . " " . $user["lastname"];
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        👤 <?php
-//                        $user=$result["email"];
-//                        $user=null;
-//                        if(mysqli_num_rows($result)==1){
-//                            $row=mysqli_fetch_assoc($result);
-//                            $user= $row["firstname"] . " " . $row["lastname"];
-//                        }
-                        echo $_SESSION["firstname"];
-//                        $row= mysql_fetch_array($result);
-//                        $username= $row['username'];
-//                        echo $username;
-//                        if($result->num_rows>0){
-//                            while($row=$result->fetch_assoc()){
-//                            $_SESSION["email"]= $result->fetch_assoc();
-//                                echo $_SESSION["email"].ToString
-//                            echo "$row["firstname"] . $row["lastname"]";
-//                        }
-//                        }
-                        ?>
+                        👤 <?php echo $_SESSION["Name"];?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">View Profile</a></li>
+                        <li><a class="dropdown-item" href="user-profile.php?tab=MC">View Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
             </ul>

@@ -3,7 +3,7 @@ session_start();
 //if (isset($_SESSION['courseDetails'])) {
 //    // Retrieve the course details from the session variable
 //    $courseDetails = json_decode($_SESSION['courseDetails'], true);
-$courseID= $_GET['courseID'];
+$courseID= $_GET['id'];
 
 // Connect to the database
 $servername = "localhost";
@@ -18,7 +18,7 @@ die("Connection failed: " . $conn->connect_error);
 }
 
 // Retrieve the course details from the database
-$sql = "SELECT * FROM `courses-data` WHERE course_id='" . $courseID . "'";
+$sql = "SELECT * FROM courses WHERE id='" . $courseID . "'";
 $result = $conn->query($sql);
 
 // Present the course details to the user

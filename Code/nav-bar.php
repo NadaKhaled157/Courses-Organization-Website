@@ -25,23 +25,23 @@
                         Categories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                        <li><a class="dropdown-item" href="#">C++</a></li>
-                        <li><a class="dropdown-item" href="#">C++/OOP</a></li>
-                        <li><a class="dropdown-item" href="#">Matlab</a></li>
-                        <li><a class="dropdown-item" href="#">Robotics</a></li>
-                        <li><a class="dropdown-item" href="#">Autocad</a></li>
-                        <li><a class="dropdown-item" href="#">Solidworks</a></li>
-                        <li><a class="dropdown-item" href="#">Automotive</a></li>
-                        <li><a class="dropdown-item" href="#">Revit</a></li>
-                        <li><a class="dropdown-item" href="#">Photoshop</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=WD">Web Development</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=CPP">C++</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=CPOOP">C++/OOP</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=ML">Matlab</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=RO">Robotics</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=AC">Autocad</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=SW">Solidworks</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=AM">Automotive</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=RE">Revit</a></li>
+                        <li><a class="dropdown-item" href="Course-Details.php?id=PS">Photoshop</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="All-Courses.php">See All</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="About.php">About</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="About.php">About</a>-->
+<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="Login.php" tabindex="-1" aria-disabled="false">Login or Signup</a>
                 </li>
@@ -53,5 +53,14 @@
         </div>
     </div>
 </nav>
+<!--<script>-->
+<!--    let pathname = window.location.pathname,-->
+<!--        pages = ['Home', 'About',];-->
+<!---->
+<!--    $('.nav-item').each(function(i) {-->
+<!--        if (pathname.includes(pages[i])) this.addClass('active');-->
+<!--        else if (this.className.includes('active')) this.removeClass('active');-->
+<!--    });-->
+<!--</script>-->
 </body>
 </html>

@@ -16,6 +16,10 @@ if (isset($_SESSION["email"])) {
 }else {
     include 'nav-bar.php';
 }
+if(isset($_SESSION["alert"])) {
+    echo $_SESSION["alert"];
+    unset($_SESSION["alert"]);
+}
 ?>
 <div id="carousel" class="carousel" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -26,7 +30,7 @@ if (isset($_SESSION["email"])) {
         <div class="carousel-item active col-lg-3">
             <img id="carousel-image1" src="../Photos/carousel1.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-md-block">
-                <h5>Become a Full Stack Developer</h5>
+                <h5><a href="Course-Details.php?id=WD">Become a Full Stack Developer</a></h5>
                 <p>Enroll in our web development workshop now to learn HTML, CSS, and Javascript.</p>
             </div>
         </div>
@@ -61,28 +65,29 @@ if (isset($_SESSION["email"])) {
         die("Connection failed: " . $conn->connect_error);
     }
     ?>
-<!--    <div class="container mt-3">-->
-<!--        <div class="row">-->
+
+    <div class="row mx-auto">
             <?php
-            $sql= "SELECT * FROM `courses-data`";
+            $sql= "SELECT * FROM courses WHERE id in ('RO','WD','CPP','ML')";
             $result = mysqli_query($conn, $sql) or die("Query failed: " . mysqli_error($conn));
 //            $result= $conn->query($sql);
     while ($row=$result->fetch_assoc()) {
-        $_SESSION["title"] = $row["title"];
-        $_SESSION["description"]= $row["description"];
-        echo "<div class='card d-inline-block mx-auto my-2 col-sm-6' style='width: 18rem;'>
-        <img src='../Photos/Courses/robotics.jpg' class='card-img-top' alt='Robotics'>
-        <div class='card-body'>
-            <h5 class='card-title'>".$_SESSION["title"]."</h5>
-            <p class='card-text'>".$_SESSION["description"]."</p>
-            <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                <a href='course-data.php' class='course btn btn-vintage d-grid gap-2 d-md-flex justify-content-md-end'>Course Details</a>
-<!--                <input type='submit' name='courseID' class='course btn btn-vintage d-grid gap-2 d-md-flex justify-content-md-end' value='Course Details'>-->
-            </div>
-        </div>
-    </div>";
+        echo "<div class='col-md-3'>
+<div class='card my-2' style='width: 21rem; height: 35rem;'>
+    <img src=../Photos/Courses/" . $row['id'] . ".jpg class='card-img-top' alt='...'>
+    <div class='card-body'>
+      <h5 class='card-title'>".$row["title"]."</h5>
+      <p class='card-text'>".$row["description"]."</p>
+    </div>
+    <div class='card-footer'>
+      <a href='Course-Details.php?id=".$row['id']."' class='course btn btn-vintage d-block'>View Details</a>
+    </div>
+  </div>
+  </div>";
     }
     ?>
+    </div>
+
 
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/course-details.js"></script>

@@ -24,8 +24,13 @@ $pass= $_POST["pass"];
 
 //$sql = "INSERT INTO users (firstName,lastName,email,phoneNumber,university,faculty,department,gradYear,pass) VALUES ('$firstName', '$lastName', '$email','$number','$uni','$faculty', '$dep', '$gradYear','$pass')";
 $sql = "INSERT INTO users (firstname,lastname,email,pass) VALUES ('$firstname', '$lastname', '$email','$pass')";
+//$user_id = $conn->insert_id;
 if($conn->query($sql) === TRUE) {
-    echo "New User Created Successfully";
+    session_start();
+
+//    $_SESSION['email']=$email;
+//    $_SESSION["userID"]= $user_id;
+    header ("Location: Login.php");
 } else {
     echo "ERROR: " . $sql . "<br>" . $conn->error;
 }

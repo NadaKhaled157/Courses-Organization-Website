@@ -1,5 +1,5 @@
 
-/*This is adding the theme "vintage" colors*/
+/*Adding the theme "vintage" colors*/
 
 .bg-vintage{
     background-color: #1c1f4c;
@@ -28,6 +28,59 @@
 .btn-check:focus+.btn-outline-vintage,.btn-outline-vintage:focus{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4);}
 .btn-check:active+.btn-vintage:focus,.btn-check:checked+.btn-vintage:focus,.btn-vintage.active:focus,.btn-vintage:active:focus,.show>.btn-vintage.dropdown-toggle:focus,
 .btn-check:active+.btn--outline-vintage:focus,.btn-check:checked+.btn-outline-vintage:focus,.btn-outline-vintage.active:focus,.btn-outline-vintage:active:focus,.show>.btn-outline-vintage.dropdown-toggle:focus
+{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4)}
+
+.btn-vintage {
+    color: #fff;
+    background-color: #00848c;
+    border-color: #00848c; /*set the color you want here*/
+}
+.btn-outline-vintage {
+    color: #00848c;
+    background-color: #fff;
+    border-color: #00848c; /*set the color you want here*/
+}
+.btn-vintage:hover, .btn-vintage:focus, .btn-vintage:active, .btn-vintage.active, .open>.dropdown-toggle.btn-vintage {
+    color: #fff;
+    background-color: #037272;
+    border-color: #037272; /*set the color you want here*/
+}
+.btn-outline-vintage:hover, .btn-outline-vintage:focus, .btn-outline-vintage:active, .btn-outline-vintage.active, .open>.dropdown-toggle.btn-outline-vintage {
+    color: #fff;
+    background-color: #00848c;
+    border-color: #00848c; /*set the color you want here*/
+}
+.btn-check:focus+.btn-vintage,.btn-vintage:focus,
+.btn-check:focus+.btn-outline-vintage,.btn-outline-vintage:focus{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4);}
+.btn-check:active+.btn-vintage:focus,.btn-check:checked+.btn-vintage:focus,.btn-vintage.active:focus,.btn-vintage:active:focus,.show>.btn-vintage.dropdown-toggle:focus,
+.btn-check:active+.btn--outline-vintage:focus,.btn-check:checked+.btn-outline-vintage:focus,.btn-outline-vintage.active:focus,.btn-outline-vintage:active:focus,.show>.btn-outline-vintage.dropdown-toggle:focus
+{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4)}
+
+/*------------------------------------------------------------------------------*/
+.btn-sec {
+    color: #fff;
+    background-color: #edebd9;
+    border-color: #edebd9; /*set the color you want here*/
+}
+.btn-outline-sec {
+    color: #1c1f4c;
+    background-color: #fff;
+    border-color: #1c1f4c; /*set the color you want here*/
+}
+.btn-sec:hover, .btn-sec:focus, .btn-sec:active, .btn-sec.active, .open>.dropdown-toggle.btn-sec {
+    color: #fff;
+    background-color: #e1dfc8;
+    border-color: #e1dfc8; /*set the color you want here*/
+}
+.btn-outline-sec:hover, .btn-outline-sec:focus, .btn-outline-sec:active, .btn-outline-sec.active, .open>.dropdown-toggle.btn-outline-sec {
+    color: #fff;
+    background-color: #1c1f4c;
+    border-color: #1c1f4c; /*set the color you want here*/
+}
+.btn-check:focus+.btn-sec,.btn-sec:focus,
+.btn-check:focus+.btn-outline-sec,.btn-outline-sec:focus{box-shadow:0 0 0 .25rem rgba(0,132,140,0.4);}
+.btn-check:active+.btn-sec:focus,.btn-check:checked+.btn-sec:focus,.btn-sec.active:focus,.btn-sec:active:focus,.show>.btn-sec.dropdown-toggle:focus,
+.btn-check:active+.btn--outline-sec:focus,.btn-check:checked+.btn-outline-sec:focus,.btn-outline-sec.active:focus,.btn-outline-sec:active:focus,.show>.btn-outline-sec.dropdown-toggle:focus
 {box-shadow:0 0 0 .25rem rgba(0,132,140,0.4)}
 
 
@@ -73,6 +126,43 @@ h6 a{
     text-decoration: none;
     color: #037272
 }
+
+/*::-webkit-scrollbar-track {*/
+/*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+/*    border-radius: 10px;*/
+/*    background-color: #1c1f4c;*/
+/*}*/
+/*::-webkit-scrollbar {*/
+/*    width: 10px;*/
+/*    background-color: #1c1f4c;*/
+/*}*/
+/*::-webkit-scrollbar-thumb {*/
+/*    border-radius: 10px;*/
+/*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+/*    background-color: #00848c;*/
+/*}*/
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(28,31,76,0.3);
+    background-color: #1c1f4c;
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #1c1f4c;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: #00848c;
+    border: 2px solid #00848c;
+}
+
+/*.active {*/
+/*    background: #00848c;*/
+/*}*/
 
 /*----------Course Details css----------*/
 /*#reviews{*/

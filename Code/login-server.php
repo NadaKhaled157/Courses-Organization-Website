@@ -19,12 +19,15 @@ $result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($co
 if ($result->num_rows>0){
     while ($emails = $result->fetch_assoc()) {
         if ($emails["email"] == $email) {
-            $query2 = "SELECT pass from users where email='$email'";
+            $query2 = "SELECT pass,id from users where email='$email'";
             $result2 = mysqli_query($conn, $query2) or die("Query failed: " . mysqli_error($conn));
-            $correctpass = $result2->fetch_assoc();
-            echo $correctpass["pass"];
-            if ($correctpass["pass"] == $password) {
+            $userData = $result2->fetch_assoc();
+//            echo $userData["pass"];
+//            echo"<br>";
+//            echo $userData["id"];
+            if ($userData["pass"] == $password) {
                 $_SESSION["email"] = $_POST["email"];
+                $_SESSION["userID"]= $userData["id"];
                 header("Location: Homepage.php");
             } else {
 //                $error="Incorrect Password.";
