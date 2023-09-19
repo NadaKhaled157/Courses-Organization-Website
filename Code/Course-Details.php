@@ -1,3 +1,4 @@
+<?php require_once 'db.php'; global $conn;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,22 +7,7 @@
     <title>Course Details</title>
 </head>
 <body>
-<?php //require 'db.php';?>
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="courses-db";
-
-// Create Connection
-$conn= new mysqli($servername, $username, $password,$dbname);
-// Check Connection
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-<?php
-require 'db.php';
 session_start();
 if (isset($_SESSION["email"])) {
     if ($_SESSION["email"]=='admin')
@@ -32,7 +18,7 @@ if (isset($_SESSION["email"])) {
 }
 $courseID=$_GET["id"];
 $sql= "SELECT * FROM courses WHERE id='" . $courseID . "'";
-$result = $conn->query($sql);;
+$result = $conn->query($sql);
 $course=$result->fetch_assoc();
 ?>
 
@@ -142,29 +128,28 @@ $course=$result->fetch_assoc();
     <div class="card ms-sm-3 ms-md-5 my-3" style="width:20rem; background-color: #faf1d7" id="card4">
         <div class="card-body">
             <h5 class="card-title fw-bold" style="color:#1c1f4c">Leave a Review!</h5>
+            <form action="review.php" method="post">
             <div class="rating"> ✩
                 <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
                 <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
                 <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
                 <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
                 <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-
             </div>
-
             <label>
-                <textarea class="form-control" rows="3" cols="50"></textarea>
+                <textarea name="review" class="form-control" rows="3" cols="50"></textarea>
             </label>
             <?php
             if (isset($_SESSION["email"])){
                 echo "<button type='submit' class='btn btn-vintage mt-2 d-inline active' style='margin-left:210px;'>Submit</button>";
             } else {
-//                echo "<button type='submit' class='btn btn-vintage mt-2 d-inline disabled' style='margin-left:210px;'>Submit</button>";
 
                 echo "<span class='d-inline-block' tabindex='0' data-bs-toggle='popover' data-bs-trigger='hover focus' data-bs-content='Please login to leave a review.'>
   <button type='submit' class='btn btn-vintage mt-2 d-inline disabled' style='margin-left:210px;'>Submit</button>
 </span>";
             }
             ?>
+            </form>
         </div>
     </div>
 </div>

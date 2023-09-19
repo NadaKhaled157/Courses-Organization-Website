@@ -1,3 +1,4 @@
+<?php require_once 'db.php'; global $conn;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,22 +7,7 @@
     <title>Course Details</title>
 </head>
 <body>
-<?php //require 'db.php';?>
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="courses-db";
-
-// Create Connection
-$conn= new mysqli($servername, $username, $password,$dbname);
-// Check Connection
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-<?php
-require 'db.php';
 session_start();
 if (isset($_SESSION["email"])) {
     if ($_SESSION["email"]=='admin')

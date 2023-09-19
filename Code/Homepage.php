@@ -1,4 +1,4 @@
-<?php include 'db.php'?>
+<?php require_once 'db.php'; global $conn;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +9,14 @@
 <body>
 <?php
 session_start();
-if (isset($_SESSION["email"])) {
-    if ($_SESSION["email"]=='admin')
-        include 'admin-nav.php';
-    else include 'logged-nav.php';
-}else {
-    include 'nav-bar.php';
-}
+//if (isset($_SESSION["email"])) {
+//    if ($_SESSION["email"]=='admin')
+//        include 'admin-nav.php';
+//    else include 'logged-nav.php';
+//}else {
+//    include 'nav-bar.php';
+//}
+include "navbar.php";
 if(isset($_SESSION["alert"])) {
     echo $_SESSION["alert"];
     unset($_SESSION["alert"]);
@@ -52,19 +53,6 @@ if(isset($_SESSION["alert"])) {
     </button>
 </div>
 <h1 class="m-3" style="color:#1c1f4c; font-family: 'Arial Black', Times,serif;">Browse Our Most Popular Courses!</h1>
-    <?php
-    $servername="localhost";
-    $username="root";
-    $password="";
-    $dbname="courses-db";
-
-    // Create Connection
-    $conn= new mysqli($servername, $username, $password,$dbname);
-    // Check Connection
-    if($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    ?>
 
     <div class="row mx-auto">
             <?php

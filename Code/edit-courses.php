@@ -1,3 +1,4 @@
+<?php require_once 'db.php'; global $conn;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +8,6 @@
 </head>
 <body>
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="courses-db";
-
-// Create Connection
-$conn= new mysqli($servername, $username, $password,$dbname);
-// Check Connection
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 $query= "SELECT * FROM courses";
 $result= $conn->query($query);
 session_start();

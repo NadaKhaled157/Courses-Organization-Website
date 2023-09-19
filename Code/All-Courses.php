@@ -1,3 +1,4 @@
+<?php require_once 'db.php'; global $conn;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,19 +18,6 @@ if (isset($_SESSION["email"])) {
 }
 ?>
 <h1 class="m-3" style="color:#1c1f4c; font-family: 'Arial Black', Times,serif;">Enroll Now and kickstart your career!</h1>
-<?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="courses-db";
-
-// Create Connection
-$conn= new mysqli($servername, $username, $password,$dbname);
-// Check Connection
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
 
 <!--    <div class="row mx-auto">-->
 <!--        --><?php
