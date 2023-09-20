@@ -9,13 +9,19 @@
 <body>
 <?php
 session_start();
-if (isset($_SESSION["email"])) {
-    if ($_SESSION["email"]=='admin')
-        include 'admin-nav.php';
-    else include 'logged-nav.php';
-}else {
-    include 'nav-bar.php';
+//if (isset($_SESSION["email"])) {
+//    if ($_SESSION["email"]=='admin')
+//        include 'admin-nav.php';
+//    else include 'logged-nav.php';
+//}else {
+//    include 'nav-bar.php';
+//}
+include "navbar.php";
+if(isset($_SESSION["alert"])) {
+    echo $_SESSION["alert"];
+    unset($_SESSION["alert"]);
 }
+global $userID;
 $courseID=$_GET["id"];
 $sql= "SELECT * FROM courses WHERE id='" . $courseID . "'";
 $result = $conn->query($sql);
@@ -82,12 +88,26 @@ $course=$result->fetch_assoc();
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6 style="color:#1c1f4c;">Nada Khaled</h6>
-                        Great course! Highly recommend.
-                        <hr>
-                            <h6 style="color:#1c1f4c;">User</h6>
-                            This is some placeholder text.
-                        <hr>
+                        <?php
+                        $query= "SELECT * FROM reviews";
+                        $result = $conn->query($query);
+                        if($result->num_rows>0){
+                            while($row=$result->fetch_assoc()){
+                                $query2 = "SELECT firstname, lastname FROM users WHERE id='".$row['UserID']."' ";
+                                $result2= $conn->query($query2);
+                                $user=$result2->fetch_assoc();
+                                $username= $user["firstname"] . " " . $user["lastname"];
+                                echo "<h6 style='color:#1c1f4c;'>$username</h6>";
+                                echo $row['review'];
+                            }
+                        } else echo "There are no reviews posted.";
+                        ?>
+<!--                        <h6 style="color:#1c1f4c;">Nada Khaled</h6>-->
+<!--                        Great course! Highly recommend.-->
+<!--                        <hr>-->
+<!--                            <h6 style="color:#1c1f4c;">--><?php //echo $_SESSION['Name']?><!--</h6>-->
+<!--                            This is some placeholder text.-->
+<!--                        <hr>-->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-vintage" data-bs-dismiss="modal">Close</button>
@@ -128,7 +148,7 @@ $course=$result->fetch_assoc();
     <div class="card ms-sm-3 ms-md-5 my-3" style="width:20rem; background-color: #faf1d7" id="card4">
         <div class="card-body">
             <h5 class="card-title fw-bold" style="color:#1c1f4c">Leave a Review!</h5>
-            <form action="review.php" method="post">
+            <form action="review.php?user=<?php echo $userID?>&course=<?php echo $course['id']?>" method="post">
             <div class="rating"> ✩
                 <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
                 <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>

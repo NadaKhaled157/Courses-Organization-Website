@@ -1,9 +1,3 @@
-<?php require_once 'db.php'; global $conn;?>
-<?php
-session_start();
-include 'logged-nav.php';
-$userID=$_SESSION['userID'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +9,12 @@ $userID=$_SESSION['userID'];
 
 </head>
 <body>
-
+<?php require_once 'db.php'; global $conn;?>
+<?php
+session_start();
+include 'navbar.php';
+$userID=$_SESSION['userID'];
+?>
 <!-----SYMBOLS----->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="home" viewBox="0 0 16 16">
@@ -118,25 +117,52 @@ $userID=$_SESSION['userID'];
             <div id='collapseOne' class='accordion-collapse collapse show' data-bs-parent='#accordionExample'>
                 <div class='accordion-body'>
                     <strong>Progress</strong> <div class='progress my-2' role='progressbar' aria-label='Example with label' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='color:#00848c;'>
-                  <div class='progress-bar' style='width: 25%'>0%</div>
+                  <div class='progress-bar' style='width: 0%'>0%</div>
                  </div>
                 ";
                 $quizzes = "SELECT * FROM quizzes WHERE CourseID='".$row['id']."' AND UserID='".$userID."'";
                 $result3 = mysqli_query($conn, $quizzes) or die("Query failed: " . mysqli_error($conn));
                 while ($quiz = $result3->fetch_assoc()){
-                    echo "<strong class='d-block'>Assignments Due</strong>
-📝1. Assignment One: <i>".$quiz['assignment1']."</i> &emsp; &emsp;
-📝4. Assignment Four: <i>".$quiz['assignment4']."</i> <br>
-📝2. Assignment Two: <i>".$quiz['assignment2']."</i> &emsp; &emsp;
-📝5. Assignment Five: <i>".$quiz['assignment5']."</i><br>
-📝3. Assignment Three: <i>".$quiz['assignment3']."</i> <br>
-<strong class='d-block'>Quizzes</strong>
-📊1. Quiz One: <i>".$quiz['quiz1']."</i>/10 &emsp; &emsp;
-📊4. Quiz Four: <i>".$quiz['quiz4']."</i>/10 <br>
-📊2. Quiz Two: <i>".$quiz['quiz2']."</i>/10 &emsp; &emsp;
-📊5. Quiz Five: <i>".$quiz['quiz5']."</i>/10<br>
-📊3. Quiz Three: <i>".$quiz['quiz3']."</i>/10 <br>
-";
+                    echo "<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th scope='col'>Assignment 1</th>
+      <th scope='col'>Assignment 2</th>
+      <th scope='col'>Assignment 3</th>
+      <th scope='col'>Assignment 4</th>
+      <th scope='col'>Assignment 5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>".$quiz['assignment1']."</td>
+      <td>".$quiz['assignment2']."</td>
+      <td>".$quiz['assignment3']."</td>
+      <td>".$quiz['assignment4']."</td>
+      <td>".$quiz['assignment5']."</td>
+    </tr>
+  </tbody>
+</table>";
+                    echo "<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th scope='col'>Quiz 1</th>
+      <th scope='col'>Quiz 2</th>
+      <th scope='col'>Quiz 3</th>
+      <th scope='col'>Quiz 4</th>
+      <th scope='col'>Quiz 5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i>".$quiz['quiz1']."</i></td>
+      <td><i>".$quiz['quiz2']."</i></td>
+      <td><i>".$quiz['quiz3']."</i></td>
+      <td><i>".$quiz['quiz4']."</i></td>
+      <td><i>".$quiz['quiz5']."</i></td>
+    </tr>
+  </tbody>
+</table>";
                 }
                 echo"<div>
                 <a class='btn btn-danger d-block' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>Drop Course</a>

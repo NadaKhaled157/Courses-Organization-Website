@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 session_start();
-include 'admin-nav.php';
+include 'navbar.php';
 
 $courseID= $_POST["id"];
 $title= $_POST["title"];

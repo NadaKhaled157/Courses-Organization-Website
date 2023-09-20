@@ -4,9 +4,11 @@ global $conn;
 if (isset($_SESSION["email"])) {
     $email = $_SESSION["email"];
 
-$query = "SELECT firstname, lastname FROM users WHERE email='$email'";
+$query = "SELECT firstname, lastname,id FROM users WHERE email='$email'";
 $result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($conn));
 $user = $result->fetch_assoc();
+global $userID;
+$userID= $user['id'];
 $_SESSION["Name"] = $user["firstname"] . " " . $user["lastname"];
 }
 ?>
