@@ -105,7 +105,24 @@ $userID=$_SESSION['userID'];
         while ($row = $result->fetch_assoc()) {
             $sql2 = "SELECT * FROM courses WHERE id='" . $row['CourseID'] . "' ";
             $result2 = mysqli_query($conn, $sql2) or die("Query failed: " . mysqli_error($conn));
-            $i=1;
+//            $i=1;
+            $quizzes = "SELECT * FROM quizzes WHERE CourseID='".$row['id']."' AND UserID='".$userID."'";
+            $result3 = mysqli_query($conn, $quizzes) or die("Query failed: " . mysqli_error($conn));
+            $data=$result3->fetch_assoc();
+            $progress=null;
+            for($i=0;$i<4;$i++){
+                if($data['quiz5']=='-'){
+                    $progress=80;
+                } else if($data['quiz4']=='-'){
+                    $progress=60;
+                } else if($data['quiz3']=='-'){
+                    $progress=40;
+                } else if($data['quiz2']=='-'){
+                    $progress=20;
+                } else if($data['quiz1']=='-'){
+                    $progress=0;
+                }
+            }
             while($row = $result2->fetch_assoc()) {
                 echo "<div class='accordion mx-md-5' id='accordionExample'>
         <div class='accordion-item my-2'>
@@ -117,11 +134,11 @@ $userID=$_SESSION['userID'];
             <div id='collapseOne' class='accordion-collapse collapse show' data-bs-parent='#accordionExample'>
                 <div class='accordion-body'>
                     <strong>Progress</strong> <div class='progress my-2' role='progressbar' aria-label='Example with label' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='color:#00848c;'>
-                  <div class='progress-bar' style='width: 0%'>0%</div>
+                  <div class='progress-bar' style='width: 10%'>0%</div>
                  </div>
                 ";
-                $quizzes = "SELECT * FROM quizzes WHERE CourseID='".$row['id']."' AND UserID='".$userID."'";
-                $result3 = mysqli_query($conn, $quizzes) or die("Query failed: " . mysqli_error($conn));
+//                $quizzes = "SELECT * FROM quizzes WHERE CourseID='".$row['id']."' AND UserID='".$userID."'";
+//                $result3 = mysqli_query($conn, $quizzes) or die("Query failed: " . mysqli_error($conn));
                 while ($quiz = $result3->fetch_assoc()){
                     echo "<table class='table table-bordered'>
   <thead>
