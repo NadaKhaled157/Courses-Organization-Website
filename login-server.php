@@ -12,9 +12,6 @@ if ($result->num_rows>0){
             $query2 = "SELECT pass,id from users where email='$email'";
             $result2 = mysqli_query($conn, $query2) or die("Query failed: " . mysqli_error($conn));
             $userData = $result2->fetch_assoc();
-//            echo $userData["pass"];
-//            echo"<br>";
-//            echo $userData["id"];
             if ($userData["pass"] == $password) {
                 $_SESSION["email"] = $_POST["email"];
                 $_SESSION["userID"]= $userData["id"];
@@ -32,14 +29,3 @@ if ($result->num_rows>0){
         }
     }
 }
-//$query = "SELECT firstname, lastname FROM users WHERE email='$email'";
-//$result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($conn));
-//$user = $result->fetch_assoc();
-//$_SESSION["firstname"] = $user["firstname"] . " " . $user["lastname"];
-//if ($_POST["email"] == "nada@gmail.com" && $_POST["pass"]=="123" ||
-//    $_POST["email"] == "sarabotros@gmail.com" && $_POST["pass"]=="1234") {
-//    $_SESSION["email"] = $_POST["email"];
-////    $_SESSION["user"]= $_POST["email"];
-//    //echo("Hello,". $_POST["email"]);
-//    header("Location: Homepage.php");
-//}

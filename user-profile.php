@@ -3,7 +3,7 @@
 <head>
     <title>Profile Information</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for the sidebar -->
     <link href="css/sidebars.css" rel="stylesheet">
     <link rel="stylesheet" href="css/homepage.css">
 
@@ -13,7 +13,7 @@
 <?php
 session_start();
 include 'navbar.php';
-$userID=$_SESSION['userID'];
+$userID=60;
 ?>
 <!-----SYMBOLS----->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -78,7 +78,7 @@ $userID=$_SESSION['userID'];
         <hr>
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../Photos/Logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <img src="Photos/Logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
                 <strong><?php echo $_SESSION['Name']; ?></strong>
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
@@ -96,7 +96,7 @@ $userID=$_SESSION['userID'];
     if($tab=="MC") {
         echo "
         <h5 class='mt-3 mb-3 ms-4' style='color:#edebd9;'>View courses you are currently enrolled in and track your progress.</h5>";
-        $sql = "SELECT * FROM enrollment WHERE UserID='".$_SESSION["userID"]."' ";
+        $sql = "SELECT * FROM enrollment WHERE UserID='60' ";
         $result = mysqli_query($conn, $sql) or die("Query failed: " . mysqli_error($conn));
 
         //            $result= $conn->query($sql);
@@ -106,22 +106,22 @@ $userID=$_SESSION['userID'];
             $sql2 = "SELECT * FROM courses WHERE id='" . $row['CourseID'] . "' ";
             $result2 = mysqli_query($conn, $sql2) or die("Query failed: " . mysqli_error($conn));
 //            $i=1;
-            $quizzes = "SELECT * FROM quizzes WHERE CourseID='".$row['id']."' AND UserID='".$userID."'";
+            $quizzes = "SELECT * FROM quizzes WHERE CourseID='".$row['CourseID']."' AND UserID='".$userID."'";
             $result3 = mysqli_query($conn, $quizzes) or die("Query failed: " . mysqli_error($conn));
             $data=$result3->fetch_assoc();
-            $progress=null;
+            $progress=0;
             for($i=0;$i<4;$i++){
-                if($data['quiz5']=='-'){
-                    $progress=80;
-                } else if($data['quiz4']=='-'){
-                    $progress=60;
-                } else if($data['quiz3']=='-'){
-                    $progress=40;
+                if($data['quiz1']=='-'){
+                    $progress=0;
                 } else if($data['quiz2']=='-'){
                     $progress=20;
-                } else if($data['quiz1']=='-'){
-                    $progress=0;
-                }
+                } else if($data['quiz3']=='-'){
+                    $progress=40;
+                } else if($data['quiz4']=='-'){
+                    $progress=60;
+                } else if($data['quiz5']=='-'){
+                    $progress=80;
+                } else $progress=100;
             }
             while($row = $result2->fetch_assoc()) {
                 echo "<div class='accordion mx-md-5' id='accordionExample'>
@@ -133,12 +133,13 @@ $userID=$_SESSION['userID'];
             </h2>
             <div id='collapseOne' class='accordion-collapse collapse show' data-bs-parent='#accordionExample'>
                 <div class='accordion-body'>
-                    <strong>Progress</strong> <div class='progress my-2' role='progressbar' aria-label='Example with label' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='color:#00848c;'>
-                  <div class='progress-bar' style='width: 10%'>0%</div>
+                    <strong>Progress</strong> <div class='progress my-2' role='progressbar' aria-label='Example with label' aria-valuenow='$progress' aria-valuemin='0' aria-valuemax='100' style='color:#00848c;'>
+                  <div class='progress-bar' style='width: $progress%'>$progress%</div>
                  </div>
                 ";
 //                $quizzes = "SELECT * FROM quizzes WHERE CourseID='".$row['id']."' AND UserID='".$userID."'";
 //                $result3 = mysqli_query($conn, $quizzes) or die("Query failed: " . mysqli_error($conn));
+                $result3 = mysqli_query($conn, $quizzes) or die("Query failed: " . mysqli_error($conn));
                 while ($quiz = $result3->fetch_assoc()){
                     echo "<table class='table table-bordered'>
   <thead>
@@ -218,7 +219,7 @@ $userID=$_SESSION['userID'];
         echo "<h4 class='mt-3 mb-3 ms-4' style='color:#edebd9;'>View Courses You Saved </h4>";
         echo"<div class=''>
   <div class='d-flex flex-row flex-nowrap mx-3 overflow-auto''>";
-        $query= "SELECT CourseID from saved WHERE UserID='".$_SESSION['userID']."' ";
+        $query= "SELECT CourseID from saved WHERE UserID='60' ";
         $result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($conn));
         if ($result->num_rows > 0) {
             while ($courses = $result->fetch_assoc()) {
@@ -227,7 +228,7 @@ $userID=$_SESSION['userID'];
                 while ($row=$result2->fetch_assoc()) {
                     echo "<div class='ms-2'>
 <div class='card' style='width: 18rem; height: 34rem;'>
-    <img src=../Photos/Courses/" . $row['id'] . ".jpg class='card-img-top' alt='...'>
+    <img src=Photos/Courses/" . $row['id'] . ".jpg class='card-img-top' alt='...'>
     <div class='card-body'>
       <h5 class='card-title'>".$row["title"]."</h5>
       <p class='card-text'>".$row["description"]."</p>

@@ -9,13 +9,7 @@
 <body>
 <?php
 session_start();
-if (isset($_SESSION["email"])) {
-    if ($_SESSION["email"]=='admin')
-        include 'admin-nav.php';
-    else include 'logged-nav.php';
-}else {
-    include 'nav-bar.php';
-}
+include "navbar.php";
 ?>
 <h1 class="m-3" style="color:#1c1f4c; font-family: 'Arial Black', Times,serif;">Enroll Now and kickstart your career!</h1>
 
@@ -49,7 +43,8 @@ if (isset($_SESSION["email"])) {
     while ($row=$result->fetch_assoc()) {
         echo "<div class='col-md-3'>
 <div class='card my-2 mx-1' style='width: 20rem; height: 35rem;'>
-    <img src=../Photos/Courses/" . $row['id'] . ".jpg class='card-img-top' alt='...'>
+    <img src='Photos/Courses/" . $row['img'] . "' class='card-img-top' alt='".$row['img']."'>
+    
     <div class='card-body'>
       <h5 class='card-title'>".$row["title"]."</h5>
       <p class='card-text'>".$row["description"]."</p>

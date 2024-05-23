@@ -1,17 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "courses-db";
+require_once 'db.php';
+global $conn;
 
-// Create Connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check Connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-include 'admin-nav.php';
+//include 'navbar.php';
 
 session_start();
 $ID= $_GET["id"];
@@ -29,6 +20,12 @@ else if ($table=="courses") {
     $deleted= "Course";
     $userID=$_GET['userId'];
     $sql = "DELETE FROM enrollment WHERE CourseID='".$ID."' AND UserID='".$userID."'";
+    $sql2= "DELETE FROM quizzes WHERE CourseID='".$ID."' AND UserID='".$userID."'";
+    if(!$conn->query($sql2)){
+        $_SESSION["alert"]= "<div class='alert alert-danger' role='alert'>
+  Error deleting ".$deleted." Record. Please refresh page and try again.
+</div>";
+    }
 }
 if($conn->query($sql) === TRUE) {
     $_SESSION["alert"]= "<div class='alert alert-primary alert-dismissible fade show' role='alert'>

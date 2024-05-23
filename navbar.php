@@ -23,7 +23,7 @@ $_SESSION["Name"] = $user["firstname"] . " " . $user["lastname"];
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="Homepage.php">
-            <img src="../Photos/Logo.png" alt="Beta Academy" width="45">
+            <img src="Photos/Logo.png" alt="Beta Academy" width="45">
             Beta Academy
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,17 +53,17 @@ $_SESSION["Name"] = $user["firstname"] . " " . $user["lastname"];
                         <li><a class="dropdown-item" href="All-Courses.php">See All</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">About</a>-->
+<!--                </li>-->
                 <?php if(!isset($_SESSION['email'])){
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='Login.php' tabindex='-1' aria-disabled='false'>Login or Signup</a>
                 </li>";
                 }?>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" method="post" action="search.php">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-vintage" id="button" type="submit">Search</button>
             </form>
             <?php if(isset($_SESSION['email'])) {

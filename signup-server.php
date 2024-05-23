@@ -27,10 +27,9 @@ $sql = "INSERT INTO users (firstname,lastname,email,pass) VALUES ('$firstname', 
 //$user_id = $conn->insert_id;
 if($conn->query($sql) === TRUE) {
     session_start();
-
-//    $_SESSION['email']=$email;
+    $_SESSION['email']=$email;
 //    $_SESSION["userID"]= $user_id;
-    header ("Location: Login.php");
+    header ("Location: Homepage.php");
 } else {
     echo "ERROR: " . $sql . "<br>" . $conn->error;
 }

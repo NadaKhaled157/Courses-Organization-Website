@@ -8,10 +8,10 @@
 </head>
 <body>
 <?php
+session_start();
+include 'navbar.php';
 $query= "SELECT * FROM courses";
 $result= $conn->query($query);
-session_start();
-include 'admin-nav.php';
 if(isset($_SESSION["alert"])) {
     echo $_SESSION["alert"];
     unset($_SESSION["alert"]);

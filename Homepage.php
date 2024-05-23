@@ -29,14 +29,14 @@ if(isset($_SESSION["alert"])) {
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active col-lg-3">
-            <img id="carousel-image1" src="../Photos/carousel1.jpg" class="d-block w-100" alt="...">
+            <img id="carousel-image1" src="Photos/carousel1.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-md-block">
                 <h5><a href="Course-Details.php?id=WD">Become a Full Stack Developer</a></h5>
                 <p>Enroll in our web development workshop now to learn HTML, CSS, and Javascript.</p>
             </div>
         </div>
         <div class="carousel-item col-lg-3">
-            <img src="../Photos/carousel2.jpg" class="d-block w-100" alt="...">
+            <img src="Photos/carousel2.jpg" class="d-block w-100" alt="...">
             <div id="carousel-image2" class="carousel-caption d-md-block">
                 <h5><a href="Signup.html">Signup Now</a></h5>
                 <p>Get 10% off your first course when you sign up to our website.</p>
@@ -62,7 +62,7 @@ if(isset($_SESSION["alert"])) {
     while ($row=$result->fetch_assoc()) {
         echo "<div class='col-md-3'>
 <div class='card my-2' style='width: 21rem; height: 35rem;'>
-    <img src=../Photos/Courses/" . $row['id'] . ".jpg class='card-img-top' alt='...'>
+    <img src=Photos/Courses/" . $row['id'] . ".jpg class='card-img-top' alt='...'>
     <div class='card-body'>
       <h5 class='card-title'>".$row["title"]."</h5>
       <p class='card-text'>".$row["description"]."</p>
